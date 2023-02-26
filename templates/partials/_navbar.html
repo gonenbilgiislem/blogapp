@@ -1,0 +1,15 @@
+<navbar class="navbar navbar-dark bg-primary navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">Blogapp</a>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}">AnaSayfa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'blogs' %}">Blogs</a>
+            </li><li class="nav-item">
+                <a class="nav-link" href="{% url 'admin' %}">Admin</a>
+            </li>
+        </ul>
+    </div>
+</navbar>
