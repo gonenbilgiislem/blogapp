@@ -8,7 +8,7 @@ urlpatterns = [
     path("blog", views.blogs,name="blogs"),
     path("blog/", views.blogs,name="blogs"),
     path("blogs/", views.blogs,name="blogs"),
-    path("blogs/<int:id>", views.blog_details,name="blog_details"),
-    path("admin",views.admin ,name="admin")
+    path("blogs/<slug:slug>", views.blog_details,name="blog_details"),
+    path("admin/",views.admin ,name="admin")
 
 ]

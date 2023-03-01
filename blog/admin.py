@@ -11,7 +11,7 @@ class BlogAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug',)
     # list_editable = ('name',)
-    list_filter = ('name',)
+    list_filter = ('name','slug')
     search_fields = ('name',)
     readonly_fields = ('slug',)
 
