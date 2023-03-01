@@ -8,7 +8,7 @@ from ckeditor.fields import RichTextField
 class Blog(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to="blogs")
-    description = models.TextField()
+    description = RichTextField()
     is_active = models.BooleanField(default=False)
     is_home = models.BooleanField(default=False)
     slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)

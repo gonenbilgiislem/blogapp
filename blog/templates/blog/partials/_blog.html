@@ -11,7 +11,7 @@
                         {{ blog.title }}
                     </a>
                 </h5>
-                <p class="card-text">{{ blog.description }}  </p>
+                <p class="card-text">{{ blog.description | safe | striptags | slice:"0:50"  }} ... </p>
             </div>
         </div>
     </div>
