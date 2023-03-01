@@ -8,9 +8,21 @@
             <div class="col-9">
                 <h1>All Blogs</h1>
                 <hr>
+            {% if blogs|length > 0 %}
                 {% for blog in blogs %}
-                    {% if blog.is_active %}{% include 'blog/partials/_blog.html' %}{% endif %}
+                    {% if blog.is_active %}
+                        {% include 'blog/partials/_blog.html' %}
+                    {% endif %}
                 {% endfor %}
+            {% else %}
+                <div class="alert alert-warning">
+                    <strong>Sorry!</strong> There are no blogs.
+                </div>
+            {% endif %}
+{#            {% endif %}#}
+{#                {% for blog in blogs %}#}
+{#                    {% if blog.is_active %}{% include 'blog/partials/_blog.html' %}{% endif %}#}
+{#                {% endfor %}#}
             </div>
         </div>
     </div>

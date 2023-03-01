@@ -4,23 +4,7 @@ from ckeditor.fields import RichTextField
 
 
 # Create your models here.
-
-class Blog(models.Model):
-    title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to="blogs")
-    description = RichTextField()
-    is_active = models.BooleanField(default=False)
-    is_home = models.BooleanField(default=False)
-    slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)
-
-    def __str__(self):
-        return f"{self.title}"
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super(Blog, self).save(*args, **kwargs)
-
-
+# --------------------------------- Category Model ---------------------------------#
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)
@@ -31,3 +15,23 @@ class Category(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+
+# --------------------------------- Blog Model ---------------------------------#
+
+class Blog(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to="blogs")
+    description = RichTextField()
+    is_active = models.BooleanField(default=False)
+    is_home = models.BooleanField(default=False)
+    slug = models.SlugField(null=False, blank=True, unique=True, db_index=True, editable=False)
+    categories = models.ManyToManyField(Category)
+
+    def __str__(self):
+        return f"{self.title}"
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Blog, self).save(*args, **kwargs)
+
+
