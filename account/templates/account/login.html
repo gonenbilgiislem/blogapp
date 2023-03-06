@@ -8,6 +8,9 @@
         <div class="col">
             <h1>{{ title }}</h1>
             <hr>
+            <div class="form-text alert alert-info">{{ kvkk_alert }}
+                <a href="{% static 'pdf/KVKK_Aydinlatma_Metni.pdf' %}" target="_blank" class="stretched-link">tıklayınız.</a>
+            </div>
             <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
                 {% if error %}
@@ -18,17 +21,12 @@
                 <div class="mb-3">
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" name="username" aria-describedby="usernameHelp">
-                    <div id="usernameHelp" class="form-text">We'll never share your username with anyone else.</div>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
                     <input type="password" class="form-control" name="password">
                 </div>
-                {#                <div class="mb-3 form-check">#}
-                {#                    <input type="checkbox" class="form-check-input" id="exampleCheck1">#}
-                {#                    <label class="form-check-label" for="exampleCheck1">Check me out</label>#}
-                {#                </div>#}
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" value="Login" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
@@ -36,3 +34,4 @@
 {% block js_files %}
     <script src="{% static 'account/js/script.js' %}"></script>
 {% endblock %}
+
